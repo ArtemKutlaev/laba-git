@@ -25,3 +25,8 @@ jobs:
 
       - name: Check whitespace errors
         run: git diff --check origin/main...HEAD
+
+      - name: TruffleHog secret scan
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --results=verified,unknown,unverified --fail
